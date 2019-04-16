@@ -292,20 +292,17 @@
         z-index: 1;
         left: -150px;
         top: 60px;
-        background-color: red;
+        background-color: #ccff99;
         width: 400px;
         height: auto;
-        border: solid black 1px;
     }
 
     .showcart div {
         position: relative;
-        background-color: blue;
         width: 100%;
         height: auto;
         margin-top: 5px;
         margin-bottom: 5px;
-        border: solid black 1px;
         display: flex;
     }
 
@@ -314,29 +311,41 @@
         margin-top: 10px;
         margin-bottom: 10px;
         padding: 5px;
-        border: solid black 1px;
         left: 0;
         flex: 1;
         text-align: right;
-    }    
+    }
 
     .showcart div span:nth-of-type(1) {
         text-align: left;
+        font-weight: bold;
         flex: 2;
+    }
+
+    .showcart div:nth-of-type(1) {
+        font-weight: bold;
+        text-align: center;
+        border: solid black 1px;
+        margin-top: 0;
     }
 
     .showcart div:nth-last-of-type(1) span {
         flex: 2;
+        font-weight: normal;
         text-align: right;
+        border: solid black 1px;
+        margin-bottom: 0;
     }
 
     .showcart div:nth-last-of-type(1) span:nth-of-type(1):before {
         float: left;
+        font-weight: bold;
         content: "Total Qty";
     }
 
     .showcart div:nth-last-of-type(1) span:nth-of-type(2):before {
         float: left;
+        font-weight: bold;
         content: "Total Price";
     }
     

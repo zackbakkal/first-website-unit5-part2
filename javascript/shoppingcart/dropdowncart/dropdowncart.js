@@ -63,7 +63,7 @@ function showCart() {
             // Calls the resetSandwichBar function to change the menu button to
             // a sandwich look
             cart.style.display = "none";
-            console.log(cart.className);
+
             while (cart.firstElementChild) {
                 cart.removeChild(cart.firstElementChild);
             }
@@ -85,25 +85,50 @@ function displayItems() {
 
     // check if the cart has any products added to it
     if (myCart._totalQty > 0) {
+
+        var header = document.createElement("div");
+        var itemName = document.createElement("span");
+        itemName.innerHTML = "Name";
+        header.appendChild(itemName);
+
+        var itemPrice = document.createElement("span");
+        itemPrice.innerHTML = "Price";
+        header.appendChild(itemPrice);
+
+        var qty = document.createElement("span");
+        qty.innerHTML = "Qty";
+        header.appendChild(qty);
+
+        var total = document.createElement("span");
+        total.innerHTML = "Total";
+        header.appendChild(total);
+
+        cart.appendChild(header);
+
         // Display added items on the cart
         myCart._rows.forEach(row => {
             displayItem(row);
         });
+
+        // Display the shopping cart total qty of items
+        totalQty.innerHTML = myCart._totalQty;
+
+        // Display the shopping cart total price of items
+        totalPrice.innerHTML = parseFloat((myCart._totalPrice).toFixed(2));
+
+        var totals = document.createElement("div");
+        totals.appendChild(totalQty);
+        totals.appendChild(totalPrice);
+
+        cart.appendChild(totals);
+    } else {
+        var div = document.createElement("div");
+        var emptyMessage = document.createTextNode("Your Cart is Empty");
+        div.appendChild(emptyMessage);
+
+        cart.appendChild(div);
     }
 
-    // Display the shopping cart total qty of items
-    totalQty.innerHTML = myCart._totalQty;
-
-    // Display the shopping cart total price of items
-    totalPrice.innerHTML = parseFloat((myCart._totalPrice).toFixed(2));
-
-    var totals = document.createElement("div");
-    totals.appendChild(totalQty);
-    totals.appendChild(totalPrice);
-
-    cart.appendChild(totals);
-
-    console.log(cart.innerHTML);
 }
 
 /*
