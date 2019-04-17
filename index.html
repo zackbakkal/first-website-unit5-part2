@@ -32,21 +32,21 @@
 
 	<div id="navigation" class="clearfix">
 		<nav>
-			<div id="carticon">
-				<a id="carticonimg" href="Cart.html"><img src="pics/cart.png" alt="Shopping Cart Icon" /></a>
-				<p id="carttotalqty">
-					<script>
-						if (localStorage.getItem("mycart") == null) {
-							document.getElementById("carttotalqty").innerHTML = 0;
-						} else {
-							document.getElementById("carttotalqty").innerHTML =
-								localStorage.getItem("carttotalqty");
-						}
-					</script>
-				</p>
-
-				<div id="cart" class="showcart"></div>
-
+			<div id="carticon" class="clearfix">
+				<div class="clearfix">
+					<a id="carticonimg" href="Cart.html"><img src="pics/cart.png" alt="Shopping Cart Icon" /></a>
+					<p id="carttotalqty">
+						<script>
+							if (localStorage.getItem("mycart") == null) {
+								document.getElementById("carttotalqty").innerHTML = 0;
+							} else {
+								document.getElementById("carttotalqty").innerHTML =
+									localStorage.getItem("carttotalqty");
+							}
+						</script>
+					</p>
+				</div>
+				<div id="cart" class="showcart clearfix"></div>
 			</div>
 
 			<div id="dropdown">

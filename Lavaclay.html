@@ -14,6 +14,7 @@
 	<script src="javascript/shoppingcart/row.js"></script>
 	<script src="javascript/shoppingcart/cart.js"></script>
 	<script src="javascript/addproducts/addlavaclay.js"></script>
+	<script src="javascript/shoppingcart/dropdowncart/dropdowncart.js"></script>
 	<title>K-Bree Cosmetics</title>
 </head>
 
@@ -31,9 +32,21 @@
 
 	<div id="navigation" class="clearfix">
 		<nav>
-			<div id="carticon">
-				<a href="Cart.html"><img src="pics/cart.png" alt="Shopping Cart Icon" /></a>
-				<p id="carttotalqty"></p>
+			<div id="carticon" class="clearfix">
+				<div class="clearfix">
+					<a id="carticonimg" href="Cart.html"><img src="pics/cart.png" alt="Shopping Cart Icon" /></a>
+					<p id="carttotalqty">
+						<script>
+							if (localStorage.getItem("mycart") == null) {
+								document.getElementById("carttotalqty").innerHTML = 0;
+							} else {
+								document.getElementById("carttotalqty").innerHTML =
+									localStorage.getItem("carttotalqty");
+							}
+						</script>
+					</p>
+				</div>
+				<div id="cart" class="showcart clearfix"></div>
 			</div>
 			<div id="dropdown">
 				<div id="sandwichbars">

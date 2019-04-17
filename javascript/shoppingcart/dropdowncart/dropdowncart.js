@@ -51,24 +51,26 @@ function start() {
 */
 function showCart() {
 
-    myCart = new Cart();
-    myCart.loadCart(JSON.parse(localStorage.getItem("mycart")));
+    if (screen.width > 767) {
+        myCart = new Cart();
+        myCart.loadCart(JSON.parse(localStorage.getItem("mycart")));
 
-    displayItems();
+        displayItems();
 
-    // Add an event listner to the sanwichbar so that if it is clicked when the 
-    // menu is shown the menu will hide
-    cartIcon.addEventListener("mouseout",
-        function () {
-            // Calls the resetSandwichBar function to change the menu button to
-            // a sandwich look
-            cart.style.display = "none";
+        // Add an event listner to the sanwichbar so that if it is clicked when the 
+        // menu is shown the menu will hide
+        cartIcon.addEventListener("mouseout",
+            function () {
+                // Calls the resetSandwichBar function to change the menu button to
+                // a sandwich look
+                cart.style.display = "none";
 
-            while (cart.firstElementChild) {
-                cart.removeChild(cart.firstElementChild);
+                while (cart.firstElementChild) {
+                    cart.removeChild(cart.firstElementChild);
+                }
             }
-        }
-        , false);
+            , false);
+    }
 }
 
 function displayItems() {
